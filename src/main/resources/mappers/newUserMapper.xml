@@ -23,4 +23,19 @@
  			,NOW()
  		)
  	</insert>
+ 	
+ 	<select id="selectLastNewUser" resultType="com.example.lesson04.model.NewUser">
+ 		SELECT
+ 			`id`
+			,`name`
+			,`yyyymmdd`
+			,`email`
+			,`introduce`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`new_user`
+		ORDER BY `id` DESC
+		LIMIT 1
+ 	</select>
  </mapper>

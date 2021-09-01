@@ -2,6 +2,8 @@ package com.example.lesson04;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,5 +41,15 @@ public class NewUserController {
 		newUser.setIntroduce(introduce);
 		newUserBO.addNewUser(newUser);
 		return "lesson04/afterAddUser";
+	}
+	
+	// 요청 URL : http://localhost/lesson04/ex01/last_user
+	@GetMapping("/ex01/last_user")
+	public String lastUser(Model model) {
+		// 마지막에 가입된 사람 하나의 정보를 가지고 온다. select DB
+		NewUser user = newUserBO.getLastNewUser();
+		model.addAttribute("user", user);
+		model.addAttribute("title", "회원 정보");
+		return "lesson04/lastUser"; // 결과 jsp
 	}
 }

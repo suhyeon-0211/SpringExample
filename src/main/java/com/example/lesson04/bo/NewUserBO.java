@@ -15,4 +15,8 @@ public class NewUserBO {
 	public void addNewUser(NewUser newUser) {
 		newUserDAO.insertNewUser(newUser);
 	}
+	
+	public NewUser getLastNewUser() {
+		return newUserDAO.selectLastNewUser();
+	}
 }
