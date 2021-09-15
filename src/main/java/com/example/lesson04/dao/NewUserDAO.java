@@ -8,4 +8,5 @@ import com.example.lesson04.model.NewUser;
 public interface NewUserDAO {
 	public void insertNewUser(NewUser newUser);
 	public NewUser selectLastNewUser();
+	public boolean existNewUserByName(String name);
 }
